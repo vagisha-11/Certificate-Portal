@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Certificate Portal</title>
+    <link rel="icon" type="image/x-icon" href='{% static 'images/logo.svg' %}'>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-50 dark:bg-gray-900 mt-4">
+    {% if messages %}
+    <div class="absolute top-2 right-2">
+      {% for message in messages %}
+      <div
+        id="toast-default"
+        class="flex items-center w-full max-w-xs p-4 text-black-500 bg-green-500 rounded-lg shadow mb-2 dark:text-white dark:bg-green-600"
+        role="alert"
+      >
+        <div class="text-sm font-normal">{{message}}</div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %} {% block content %} {% endblock %}
+  </body>
+</html>
